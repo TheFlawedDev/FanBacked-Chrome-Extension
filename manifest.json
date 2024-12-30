@@ -1,1 +1,25 @@
-{}
+{
+  "name": "FanBacked",
+  "version": "1.0.0",
+  "description": "auto-apply coupons & affiliate links ",
+  "permissions": [
+    "activeTab",
+    "<all_urls>",
+    "tabs"
+    ],
+  "background": {
+    "page": "background.html",
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["apps.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "manifest_version": 3,
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' https://www.gstatic.com https://*.firebaseio.com https://www.googleapis.com; object-src 'self';"
+  }
+}
